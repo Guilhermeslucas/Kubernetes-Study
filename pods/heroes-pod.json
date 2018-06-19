@@ -9,7 +9,7 @@
         }
     },
     "spec": {
-        "container": [
+        "containers": [
             {
                 "name": "api-heroes",
                 "image": "erickwendel/api-heroes:v1",
