@@ -1,2 +1,2 @@
 # Kubernetes-Study
-Material from Maratona Kubernetes
+Material from Kubernetes Marathon
