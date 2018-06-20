@@ -1,0 +1,52 @@
+{
+    "apiVersion": "extensions/v1beta1",
+    "kind": "ReplicaSet",
+    "metadata": {
+        "name": "api-heroes",
+        "labels": {
+            "version": "v1",
+            "app": "api-heroes"
+        }
+    },
+    "spec": {
+        "replicas": 5,
+        "selector": {
+            "matchLabels": {
+                "version": "v1",
+                "app": "api-heroes"
+            }
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "version": "v1",
+                    "app": "api-heroes"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "api-heroes",
+                        "image": "k8sguluc.azurecr.io/api-heroes:v1",
+                        "ports": [{
+                            "containerPort": 4000
+                        }],
+                        "env": [
+                            {
+                            "name": "MONGO_URL",
+                            "value": "10.244.0.4"
+                            },
+                            {
+                                "name": "PORT",
+                                "value": "4000"
+                            }
+                        ]
+                    }
+                ],
+                "imagePullSecrets": [{
+                    "name": "acr-credentials"
+                }]
+            }
+        }
+    }
+}
