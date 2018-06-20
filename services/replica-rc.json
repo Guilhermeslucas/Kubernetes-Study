@@ -34,7 +34,7 @@
                         "env": [
                             {
                             "name": "MONGO_URL",
-                            "value": "10.244.0.4"
+                            "value": "mongo-svc"
                             },
                             {
                                 "name": "PORT",
