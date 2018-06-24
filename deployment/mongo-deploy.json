@@ -1,0 +1,36 @@
+{
+    "apiVersion": "extension/v1beta1",
+    "kind": "Deployment",
+    "metadata": {
+        "name": "mongodb-deployment",
+        "labels": {
+            "version": "v1",
+            "app": "mongodb"
+        }
+    },
+    "spec": {
+        "replicas": 2,
+        "selector": {
+            "matchLabels": {
+                "version": "v1",
+                "app": "mongodb"
+            }
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "version": "v1",
+                    "app":  "mongodb"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "mongodb",
+                        "image": "mongodb:3.5"
+                    }
+                ]
+            }
+        }
+    }
+}
