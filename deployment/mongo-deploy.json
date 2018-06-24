@@ -1,5 +1,5 @@
 {
-    "apiVersion": "extension/v1beta1",
+    "apiVersion": "extensions/v1beta1",
     "kind": "Deployment",
     "metadata": {
         "name": "mongodb-deployment",
@@ -27,7 +27,12 @@
                 "containers": [
                     {
                         "name": "mongodb",
-                        "image": "mongodb:3.5"
+                        "image": "mongodb:3.5",
+                        "ports": [
+                            {
+                                "containerPort": 27017
+                            }
+                        ]
                     }
                 ]
             }
