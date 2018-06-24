@@ -34,7 +34,7 @@
                         "env": [
                             {
                             "name": "MONGO_URL",
-                            "value": "mongo-svc"
+                            "value": "mongodb-svc"
                             },
                             {
                                 "name": "PORT",
