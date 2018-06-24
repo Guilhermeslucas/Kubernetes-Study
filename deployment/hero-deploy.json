@@ -1,0 +1,52 @@
+{
+    "apiVersion": "extensions/v1beta1",
+    "kind": "Deployment",
+    "metadata": {
+        "name": "api-heores-deployment",
+        "labels": {
+            "version": "v1",
+            "app": "api-heroes"
+        }
+    },
+    "spec": {
+        "replicas": 5,
+        "selector": {
+            "matchLabels": {
+                "version": "v1",
+                "app": "api-heroes"
+            }
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "version": "v1",
+                    "app": "api-heroes"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "api-heroes",
+                        "image": "erickwendel/api-heroes:v1",
+                        "ports": [
+                            {
+                                "containerPort": 4000
+                            }
+                        ],
+                        "env": [
+                            {
+                                "name": "MONGO_URL",
+                                "value": "mongodb-svc"
+                            },
+                            {
+                                "name": "PORT",
+                                "value": "4000" 
+                            }
+                        ]
+
+                    }
+                ]
+            }
+        }
+    }
+}
