@@ -1,0 +1,17 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron-starwars
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate: 
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cron-starwars
+              image: erickwendel/k8es-job-starwars-example
+              env:
+                - name: MONGO_URL
+                  value: mongodb-svc
+          restartPolicy: OnFailure 
